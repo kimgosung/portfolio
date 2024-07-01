@@ -5,6 +5,8 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@material-tailwind/react/theme/components**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -12,6 +14,23 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      keyframes: {
+        smoothBounce: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+      },
+      animation: {
+        smoothBounce: "smoothBounce 1.5s infinite ease-in-out",
+      },
+      fontFamily: {
+        sans: ["SF Pro Display", "Helvetica", "Arial", "sans-serif"],
+      },
+      colors: {
+        "apple-gray": "#f5f5f7",
+        "apple-blue": "#0071e3",
+        "apple-dark": "#1d1d1f",
       },
     },
   },
