@@ -1,18 +1,52 @@
 "use client";
 
-import Card from "./components/Card/Card";
+import React from "react";
+import AnimatedText from "./components/AnimatedText/AnimatedText";
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 
-const Home = () => {
+export default function Home() {
   return (
-    <Card>
-      <div className="p-2 sm:p-4 md:p-8 lg:p- xl:p-2">
-        <div className="flex items-center mb-8 md:mb-12">
-          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white font-['GmarketSansBold']">
-            Personal
-          </h1>
-          <hr className="flex-1 ml-6 h-0.5 border-t-1 dark:bg-white/10" />
-        </div>
-        <p className="text-sm sm:text-md md:text-xl lg:text-xl xl:text-xl text-white mb-8 md:mb-12 font-light leading-relaxed">
+    <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
+      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-xl md:text-5xl font-bold mb-6">
+          <AnimatedText
+            text="안녕하세요 프론트엔드 개발자 김고성입니다."
+            speed={70}
+          />
+        </h1>
+        <p className="text-base md:text-xl lg:text-2xl text-gray-600 max-w-2xl mx-auto">
+          안녕하세요
+        </p>
+        <motion.div
+          className="mt-8 md:mt-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          <Link
+            to="about"
+            smooth={true}
+            duration={800}
+            className="bg-blue-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full text-sm md:text-lg font-semibold hover:bg-opacity-90 transition duration-300 cursor-pointer"
+          >
+            저에 대해 궁금하신가요?
+          </Link>
+        </motion.div>
+      </div>
+
+      <motion.div
+        id="about"
+        className="min-h-screen flex flex-col items-center justify-center text-center px-4 bg-gray-100"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6">
+          간략한 소개
+        </h2>
+        <p className="text-base md:text-xl lg:text-2xl text-gray-600 max-w-2xl mx-auto">
           안녕하십니까! 끊임 없이 도전하고 항상 무엇이든 궁금해하는 프론트엔드
           개발자 김고성입니다. 프론트엔드 개발자는 사용자와 개발자를
           연결시켜주는 다리와 같은 역할을 한다고 생각합니다. 사용자들과 끊임없는
@@ -22,41 +56,7 @@ const Home = () => {
           능력을 이용해 다른 팀원들의 부족한 점을 채워주고 서로 돕고 돕는 관계로
           같이 성장하는 사람이 되고 싶습니다.
         </p>
-        <div className="text-sm sm:text-md md:text-lg lg:text-lg xl:text-lg text-white font-light space-y-3 md:space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center">
-            <span className="font-['GmarketSansBold'] w-full sm:w-36 md:w-48 mb-1 sm:mb-0">
-              Address
-            </span>
-            <span className="flex-1 font-['GmarketSansLight']">
-              서울특별시 성동구 고산자로 2길 65
-            </span>
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center">
-            <span className="font-['GmarketSansBold'] w-full sm:w-36 md:w-48 mb-1 sm:mb-0">
-              Email
-            </span>
-            <span className="flex-1 font-['GmarketSansLight']">
-              rlarhtjd0123@google.com
-            </span>
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center">
-            <span className="font-['GmarketSansBold'] w-full sm:w-36 md:w-48 mb-1 sm:mb-0">
-              Age
-            </span>
-            <span className="flex-1 font-['GmarketSansLight']">
-              2000년 10월 22일 (만 23세)
-            </span>
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center">
-            <span className="font-['GmarketSansBold'] w-full sm:w-36 md:w-48 mb-1 sm:mb-0">
-              MBTI
-            </span>
-            <span className="flex-1 font-['GmarketSansLight']">ISTJ</span>
-          </div>
-        </div>
-      </div>
-    </Card>
+      </motion.div>
+    </div>
   );
-};
-
-export default Home;
+}

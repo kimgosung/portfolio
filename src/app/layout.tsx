@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "kimgosung",
-  description: "portfolio",
+  description: "frontend",
 };
 
 export default function RootLayout({
@@ -17,11 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-gradient-to-r from-blue-500 to-purple-500`}
+        className={`${inter.className} bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100`}
       >
-        <main className="flex justify-center items-center min-h-screen px-2 sm:px-4 md:px-10 lg:px-16 pb-16 sm:pb-32 md:pb-48">
-          {children}
-        </main>
+        <div className="flex flex-col min-h-screen">
+          <main className="flex-grow">{children}</main>
+        </div>
       </body>
     </html>
   );
