@@ -42,7 +42,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
 
   return (
     <motion.span
-      className={`inline-block font-['GmarketSansBold'] ${className}`}
+      className={`inline-block font-['GmarketSansBold'] text-gray-900 ${className}`}
       initial={{ opacity: 1 }}
       animate={controls}
     >
