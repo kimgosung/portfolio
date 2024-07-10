@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import AnimatedText from "./components/AnimatedText/AnimatedText";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import {
@@ -14,6 +13,7 @@ import {
   FaUser,
 } from "react-icons/fa";
 import Card from "./components/Card/Card";
+import { AnimatedText } from "animated-text-kimgosung";
 
 export default function Home() {
   return (
